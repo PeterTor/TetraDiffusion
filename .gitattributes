@@ -1,2 +1,4 @@
+tetrahedra filter=lfs diff=lfs merge=lfs -text
+tetrahedra/*/*.pth filter=lfs diff=lfs merge=lfs -text
 tetrahedra/192/upsample_128_sorted.pth filter=lfs diff=lfs merge=lfs -text
 tetrahedra/192/neighbors_192_sorted.pth filter=lfs diff=lfs merge=lfs -text

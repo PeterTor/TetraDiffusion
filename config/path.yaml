@@ -1,0 +1,18 @@
+data_path: /scratch5/TetraDiffusion_Rebuttal/
+results_folder: "bike"
+
+# Dataset
+dataset:
+  cube_range: [32,48,64,96,128]
+  sdf_masking_value: 1.0 # set masked sdf to this value
+  deform_masking_value: 0.0 # set masked deform to this value
+  training: True # if True use training data - else test split (for inference)
+  train_split: False # train on full data (False) or on train split (True)
+  grid_res: 128 # 128 or 192
+  shapenet_ids: ["03790512"]
+  num_samples: 1000000 # max number of used samples in the dataset - mostly used for debugging
+  mask_data: True # is TSDF
+  color: True
+  grid_pruning: True # removes part of the data
+  mask_lossy: True # for pretraining removes everything above threshold
+  threshold: 0 # in case of lossy masking, threshold for a vertex being removed

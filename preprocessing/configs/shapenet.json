@@ -1,0 +1,26 @@
+{
+    "ref_mesh"  : "/path/to/ShapeNetCore.v2/03790512/532e6f88a9975a27b37378f3c85478b4/models/model_normalized.obj",
+    "mtl_override": "/path/to/ShapeNetCore.v2/03790512/532e6f88a9975a27b37378f3c85478b4/models/model_normalized.mtl",
+    "random_textures": true,
+    "iter": 5000,
+    "save_interval": 5000,
+    "texture_res": [512, 512],
+    "train_res": [1024, 1024],
+    "batch": 3,
+    "learning_rate": [1e-2, 1e-2],
+    "envmap": "data/irrmaps/misty_farm_road_4k.hdr",
+    "env_scale" : 1.0,
+    "dmtet_grid" : 128,
+    "mesh_scale" : 1.0,
+    "background": "checker",
+    "validate" : false,
+    "learn_light": false,
+    "out_dir": "airplane",
+    "display": [{"bsdf" : "normal"}, {"bsdf" : "geo_normal"}, {"bsdf" : "depth"}, {"bsdf" : "mask"}, {"bsdf" : "depth_second"}, {"bsdf" : "mask_second"}],
+    "laplace": "absolute",
+    "laplace_scale": 2000.0,
+    "regular": true,
+    "original": true,
+    "wo_disps": true
+}
+

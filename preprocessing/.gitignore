@@ -1,0 +1,4 @@
+out/
+.idea/
+*__pycache__*
+configs/0*

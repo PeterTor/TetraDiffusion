@@ -1,0 +1,44 @@
+num_workers: 12
+load_weights: False
+use_local_sgd: False
+
+# Training params
+training:
+  batch_size: 1 
+  ga:  2
+  ema_decay: 0.995
+  lr: 1.e-4
+  num_steps: 400000
+  test_every: 10000
+  use_scheduler: False # if true ignores lr
+  start_lr: 1e-4
+  max_lr: 1e-4
+  min_lr: 1e-6
+  mixed_precision: False
+
+network:
+  GC: [True,True,True,True,True] # where to use gradinet checkpointing
+  width: 128
+  vit_depth: 4
+  num_blocks: [2 , 2, 2 , 2 , 2] # [1 , 1, 2, 2 , 2] # num of res blocks per level
+  channel_multiplier: [1, 1, 1, 4, 8] # [1, 1, 4, 8, 8] #[1, 1, 4, 8, 12] # multiplied by width
+  dropout: [0.0, 0.0, 0.0, 0.1, 0.1] # dropout per stage
+  downsample: [True,True,True,True,False] #defines when downsample is happening
+  upsample: [False,True,True,True,True] #defines when upsample is happening
+  attentions: [False, False, False, False, True] # defines where to place self-attention (left is highest resolution)
+  linear_attentions: [True, True, True, True, False] # defines where to place self-attention (left is highest resolution)
+  learned_sinusoidal_cond: True
+  learned_sinusoidal_dim: 1024
+  use_group_norm: True #else uses RMSNorm
+  group_norm_groups: 32 # number of groups per to normalize
+  add_coords: False
+
+# Diffusion params
+diffusion:
+  offset_noise: 0.0
+  noise_d: 32
+  use_standard_noise: False
+  pred_objective: "v" # "v" or "eps"
+  sampling_steps: [32,32,64,64]
+
+
